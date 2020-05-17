@@ -1,0 +1,35 @@
+{
+  "name": "the_startup_survey",
+  "version": "1.0.0",
+  "description": "The Clothing store Survey",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nataraj2609/the_startup_survey.git"
+  },
+  "keywords": [
+    "nataraj.m",
+    "<nataraj2609@gmail.com>"
+  ],
+  "author": "nataraj.m <nataraj2609@gmail.com>",
+  "license": "ISC",
+  "engines": {
+    "node": "4.2.2"
+  },
+  "bugs": {
+    "url": "https://github.com/Nataraj2609/buddieschat/issues"
+  },
+  "homepage": "https://github.com/Nataraj2609/buddieschat#readme",
+  "dependencies": {
+    "connect-mongo": "^3.2.0",
+    "ejs": "2.3.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.9.14",
+    "passport": "0.3.2",
+    "passport-facebook": "2.0.0"
+  }
+}
