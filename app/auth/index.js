@@ -17,7 +17,7 @@ module.exports = () => {
 
 
     let authProcessor = (accessToken, refreshToken, profile, done) =>{
-        console.log('Natu ',profile)
+        //console.log('Natu ',profile)
         h.findOne(profile.id)
             .then(result => {
                 if(result){

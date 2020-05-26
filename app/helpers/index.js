@@ -67,10 +67,27 @@ let isAuthenticated = (req, res, next) => {
         res.redirect('/');
 }
 
+//Response Data Insertion
+let createNewResponse = req => {
+    return new Promise((resolve, reject) => {
+        console.log('user data ',)
+        const responseData = new db.ResponseModel(req.body);
+        console.log('Data in Form Response ',responseData);
+
+        responseData.save(error => {
+            if(error)
+                console.log('Create New Response Data -Form Error');
+            else
+                resolve(responseData);
+        });
+    });
+}
+
 module.exports = {
     route,
     findOne,
     createNewUser,
     findById,
-    isAuthenticated
+    isAuthenticated,
+    createNewResponse
 }

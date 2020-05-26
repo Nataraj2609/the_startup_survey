@@ -13,9 +13,9 @@ module.exports = () => {
                     user: req.user
                 });
             }],
-            '/chat': [helper.isAuthenticated , (req, res, next) => {
-                res.render('chatroom');
-            }],
+            '/success': (req, res, next) => {
+                res.render('success');
+            },
             '/auth/facebook': passport.authenticate('facebook'),
             '/auth/facebook/callback': passport.authenticate('facebook', {
                 successRedirect: '/rooms',
@@ -27,6 +27,10 @@ module.exports = () => {
             }
         },
         'post': {
+            '/submit': (req, res, next) => {
+                helper.createNewResponse(req);
+                res.redirect('/success');
+            }
 
         },
          'NA': (req, res, next) => {

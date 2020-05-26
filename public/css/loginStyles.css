@@ -1,42 +1,56 @@
-/* login.html stylesheet */
-.container {
-	position:absolute;
-	width: 350px;
-	height: 210px;
-	border:1px solid black;
-	top:0;
-	bottom:0;
-	left:0;
-	right:0;
-	margin:auto;
-}
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+	/* some CSS here */
+  }
+  
+  /* #### Mobile Phones Landscape #### */
+  @media screen and (max-device-width: 640px) and (orientation: landscape){
+	/* some CSS here */
+  }
+  
+  /* #### Mobile Phones Portrait or Landscape #### */
+  @media screen and (max-device-width: 640px){
+	/* some CSS here */
+  }
+  
+  /* #### iPhone 4+ Portrait or Landscape #### */
+  @media screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+	/* some CSS here */
+  }
+  
+  /* #### iPhone 5 Portrait or Landscape #### */
+  @media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+	/* some CSS here */
+  }
+  
+  /* #### iPhone 6 and 6 plus Portrait or Landscape #### */
+  @media (min-device-height: 667px) and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 3){
+	/* some CSS here */
+  }
+  
+  /* #### Tablets Portrait or Landscape #### */
+  @media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+	/* some CSS here */
+  }
+  
+  /* #### Desktops #### */
+  @media screen and (min-width: 1024px){
+	/* some CSS here */
+	.container {
+		padding-top: 16%;
+		padding-left: 16%;
+    }
+    
+    body{
+      background-image: url("../img/panda_small.jpg");
+      height: 700px; /* You must set a specified height */
+      background-position: right; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+    }
+  }
 
-.titlePanel {
+  #loginBtnImg {
 	position: relative;
-	width: 350px;
-	height: 50px;
-	background-color: rgb(0,0,0);
-}
-
-.titlePanel > h1 {
-	position: absolute;
-	color: rgb(255,255,255);
-	font-family: sans-serif;
-	font-weight: normal;
-	font-size: 20px;
-	margin: 0;
-	padding:0;
-	top:15px;
-	left: 10px;
-}
-
-.loginButton {
-	position: relative;
-	height: 150px;
-}
-
-#loginBtnImg {
-	position: relative;
-	top: 1px;
-	width: 350px;
-}
+	width: 370px;
+	height: 62px;
+  }
