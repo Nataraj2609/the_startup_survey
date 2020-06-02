@@ -3,19 +3,19 @@ const router = require('express').Router();
 const db = require('../db');
 
 let _registerRoutes = (routes, method) => {
-    for(let key in routes){
-        if(typeof routes[key]==='object' && routes[key]!==null && !(routes[key] instanceof Array)){
-            _registerRoutes(routes[key], key);   
-        }else{
-            if(method === 'get'){
+    for (let key in routes) {
+        if (typeof routes[key] === 'object' && routes[key] !== null && !(routes[key] instanceof Array)) {
+            _registerRoutes(routes[key], key);
+        } else {
+            if (method === 'get') {
                 router.get(key, routes[key]);
-            }else if(method === 'post'){
+            } else if (method === 'post') {
                 router.post(key, routes[key]);
-            }else{
+            } else {
                 //Bug 1
                 router.use(routes[key]);
             }
-      }
+        }
     }
 }
 
@@ -40,7 +40,7 @@ let createNewUser = profile => {
         });
 
         newChatUser.save(error => {
-            if(error)
+            if (error)
                 console.log('Create New user Error');
             else
                 resolve(newChatUser);
@@ -51,7 +51,7 @@ let createNewUser = profile => {
 let findById = id => {
     return new Promise((resolve, reject) => {
         db.UserModel.findById(id, (error, user) => {
-            if(error)
+            if (error)
                 reject(error);
             else
                 resolve(user);
@@ -61,7 +61,7 @@ let findById = id => {
 
 // Middleware to restrict URL
 let isAuthenticated = (req, res, next) => {
-    if(req.isAuthenticated()) 
+    if (req.isAuthenticated())
         next();
     else
         res.redirect('/');
@@ -70,16 +70,18 @@ let isAuthenticated = (req, res, next) => {
 //Response Data Insertion
 let createNewResponse = req => {
     return new Promise((resolve, reject) => {
-        console.log('user data ',)
-        const responseData = new db.ResponseModel(req.body);
-        console.log('Data in Form Response ',responseData);
+        if (req.user.fullName) {
+            const responseData = new db.ResponseModel(req.body);
+            responseData.user = req.user.fullName;
+            console.log('Data in Form Response ', responseData);
 
-        responseData.save(error => {
-            if(error)
-                console.log('Create New Response Data -Form Error');
-            else
-                resolve(responseData);
-        });
+            responseData.save(error => {
+                if (error)
+                    console.log('Create New Response Data -Form Error');
+                else
+                    resolve(responseData);
+            });
+        }
     });
 }
 

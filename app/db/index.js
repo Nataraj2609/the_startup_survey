@@ -16,7 +16,7 @@ const startupUser = new Mongoose.Schema({
 
 //Schema to Store User response data
 const response = new Mongoose.Schema({
-    user: [{ type: Schema.Types.ObjectId, ref: 'UserModel' }],
+    user: String,
     mailId: String,
     createdDate: { type: Date, default: Date.now }
 });
