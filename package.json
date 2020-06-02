@@ -17,7 +17,7 @@
   "author": "nataraj.m <nataraj2609@gmail.com>",
   "license": "ISC",
   "engines": {
-    "node": "4.2.2"
+    "node": ">4.2.2"
   },
   "bugs": {
     "url": "https://github.com/Nataraj2609/buddieschat/issues"
