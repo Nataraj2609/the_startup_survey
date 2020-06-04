@@ -1,6 +1,9 @@
 /* #### Mobile Phones Portrait #### */
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
   /* some CSS here */
+  .button-groups{
+    margin-top: 10px;
+  }
 }
 
 /* #### Mobile Phones Landscape #### */

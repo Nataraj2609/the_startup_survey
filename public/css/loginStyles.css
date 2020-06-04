@@ -1,6 +1,11 @@
 /* #### Mobile Phones Portrait #### */
 @media screen and (max-device-width: 480px) and (orientation: portrait){
-	/* some CSS here */
+  /* some CSS here */
+  .container {
+    padding:  20px;
+    padding-top: 40%;
+    
+    }
   }
   
   /* #### Mobile Phones Landscape #### */
@@ -38,7 +43,7 @@
 	/* some CSS here */
 	.container {
 		padding-top: 16%;
-		padding-left: 16%;
+		padding-left: 14%;
     }
     
     body{
