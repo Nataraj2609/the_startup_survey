@@ -73,8 +73,10 @@ let createNewResponse = req => {
         if (req.user.fullName) {
             const responseData = new db.ResponseModel(req.body);
             responseData.user = req.user.fullName;
+            if(responseData.mobile===null){
+                responseData.mobile=0;
+            }
             console.log('Data in Form Response ', responseData);
-
             responseData.save(error => {
                 if (error)
                     console.log('Create New Response Data -Form Error');

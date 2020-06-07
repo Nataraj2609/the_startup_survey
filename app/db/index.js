@@ -18,6 +18,20 @@ const startupUser = new Mongoose.Schema({
 const response = new Mongoose.Schema({
     user: String,
     mailId: String,
+    gender: String,
+    topsSize: String,
+    bottomSize: String,
+    pinCode: Number,
+    platforms: String,
+    gangCount: Number,
+    feedback: String,
+    mobile: Number,
+    musicTaste: String,
+    actorTaste: String,
+    sportsTaste: String,
+    dirTaste: String,
+    memesTaste: String,
+    joinUs: String,
     createdDate: { type: Date, default: Date.now }
 });
 

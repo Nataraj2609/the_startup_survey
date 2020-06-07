@@ -6,14 +6,6 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap"
-      rel="stylesheet"
-    />
-    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
@@ -21,10 +13,112 @@
     />
     <title>getCrookd- The Survey Page</title>
     <link rel="stylesheet" href="/css/roomsStyles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script>
+   
+   $(function() {
+    console.log( "ready!" );
+    $(".showIfNecessary").hide();
+
+    $('input[type=radio][name=Joining]').change(function() {
+    $(".showIfNecessary").toggle();
+    }),
+    
+    $("form[name='registration']").validate({
+      rules: {
+          mailId: {
+              required: true,
+              email: true
+            },
+            pinCode: {
+              required: true,
+              minlength: 6,
+              maxlength: 6
+            },
+            feedback: {
+              required: true,
+              minlength: 1,
+              maxlength: 500
+            },
+            mobile:  {
+              required: false,
+              minlength: 1,
+              maxlength: 10
+            }
+    },
+    messages: {
+          pinCode: {
+            required: "Please provide a PinCode",
+            minlength: "Your PinCode must be at least 6 digits",
+            maxlength: "Your PinCode must not be greater than 6 digits",
+          },
+          mailId: "Please enter a valid email address",
+          feedback: {
+              required: "Please provide a feedback",
+              minlength: "Your feedback is not useful",
+              maxlength: "Only 500 characters are suppourted"
+            },
+            mobile: {
+              minlength: "Your Mobile Number is not Valid",
+              maxlength: "Please Enter Mobile Number of 10 digits"
+            }
+        },
+    submitHandler: function(form) {
+      var music=[];
+      var actors=[];
+      var sports=[];
+      var dirs=[];
+      var memes = [];
+
+    $('input:checked[name=musicTaste1]').each(function(){
+        music.push($(this).val());
+    });
+    $('input:checked[name=actorTaste1]').each(function(){
+        actors.push($(this).val());
+    });
+    $('input:checked[name=sportsTaste1]').each(function(){
+        sports.push($(this).val());
+    });
+    $('input:checked[name=dirTaste1]').each(function(){
+         dirs.push($(this).val());
+    });
+    $('input:checked[name=memesTaste1]').each(function(){
+         memes.push($(this).val());
+    });
+
+
+    $('#music_taste').val(music.join('-'));    
+    if($('#music_taste').val()==''){
+      $('#music_taste').val('0');
+    }
+    $('#actor_taste').val(actors.join('-'));    
+    if($('#actor_taste').val()==''){
+      $('#actor_taste').val('0');
+    }
+    $('#sports_taste').val(sports.join('-'));    
+    if($('#sports_taste').val()==''){
+      $('#sports_taste').val('0');
+    }
+    $('#dir_taste').val(dirs.join('-'));    
+    if($('#dir_taste').val()==''){
+      $('#dir_taste').val('0');
+    }
+    $('#meme_taste').val(memes.join('-'));    
+    if($('#meme_taste').val()==''){
+      $('#meme_taste').val('0');
+    }
+
+      form.submit();
+    }
+    });
+});
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <a class="navbar-brand" href="#">
+        <img src="https://res.cloudinary.com/getcrookd/image/upload/c_thumb,g_face,w_75/v1591368995/getCrookd/logo/label_zbqveu.jpg"/>
         getCrookd</a>
       <button
         class="navbar-toggler"
@@ -74,48 +168,652 @@
     </nav>
     <!--Navbar -->
 
-    <div class="container">
+    <div class="container"><br/>
+      <div class="card">
+        <div class="card-body">
+      
+      <h3>Hi <span class="userName"><%= user.fullName %></span>,</h3>
+      <h6><p>Before Introducing about ourselves, let's look a small survey<br> <br>According to <a href="https://economictimes.indiatimes.com/et500">Economic Times</a>, it is sad to see that We[Tamil Nadu Companies] are not among the list of investable companies with good fundamentals and future-ready business models in India.
+       </p>
+      <p>Only a Few Succeeded! <ol>
+      <li>Hotel Saravana Bhavan </li>
+      <li>Aachi Group </li>
+      <li>Hatsun Agro Products </li>
+      <li>Nalli Silks </li>
+      <li>Zoho Corporation </li>
+      <li>MRF</li>
+      <li>TVS </li>
+      <li>CavinKare </li>
+      <li>Murgappa Group</li>
+      <li>Ramraj Cotton</li>
+      </ol>
+   And so, We like to earn a Brand Name representing People of India❤️
+    </p></h6>
+    <h5>
+      <h4>getCrookd Garments</h4>
+      <p>getCrookd is an Online store built locally for the People of Tamil Nadu. We want some data to create our data model. We Strongly respect Your Privacy!</p>
+    </h5>
+        </div>
+      </div>
+
+
       <br />
       <div class="card bg-light">
         <div class="card-header">
-          <h3>Hi <span class="userName"><%= user.fullName %></span>,</h3>
+          <h4><span class="userName"><%= user.fullName %></span>,</h4>
           <h6>Enter your Responses here</h6>
         </div>
         <div class="card-body">
-          <h5 class="card-title">
-            What online platform brand would you prefer to buy a t-shirt?
-          </h5>
-          <p class="card-text">
-            <button type="button" class="btn btn-outline-primary button-groups">
-              Flipkart
-            </button>
-            <button type="button" class="btn btn-outline-secondary button-groups">
-              Amazon
-            </button>
-            <button type="button" class="btn btn-outline-success button-groups">
-              Myntra
-            </button>
-            <button type="button" class="btn btn-outline-danger button-groups">Jabong</button>
-            <button type="button" class="btn btn-outline-warning button-groups">
-              Max Fashion
-            </button>
-            <button type="button" class="btn btn-outline-info button-groups">Ajio</button>
-          </p>
-        </div>
-        <div class="card-body">
-          <form id="responseFormData" action="/submit" method="post">
+          <form id="responseFormData" action="/submit" method="post" name="registration">
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
+              <label for="exampleInputEmail1" class="font-weight-bold">Email address</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="mailId">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
+    
+            
+            <div class="form-group">
+              <label class="font-weight-bold">Gender</label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="gender1" value="male" checked="true">
+                <label class="form-check-label" for="gender1">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="gender2" value="female">
+                <label class="form-check-label" for="gender2">Female</label>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="font-weight-bold">Preferred T-shirt/Tops Size</label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="topsSize" id="topsSize1" value="S">
+                <label class="form-check-label" for="topsSize1">S</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="topsSize" id="topsSize2" value="M" checked>
+                <label class="form-check-label" for="topsSize2">M</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="topsSize" id="topsSize3" value="L">
+                <label class="form-check-label" for="topsSize3">L</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="topsSize" id="topsSize4" value="XL">
+                <label class="form-check-label" for="topsSize4">XL</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="topsSize" id="topsSize5" value="XXL">
+                <label class="form-check-label" for="topsSize5">XXL</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="font-weight-bold">Preferred Pant\Lower Bottoms Size</label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bottomSize" id="bottomSize1" value="28">
+                <label class="form-check-label" for="bottomSize1">28</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bottomSize" id="bottomSize2" value="30">
+                <label class="form-check-label" for="bottomSize2">30</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bottomSize" id="bottomSize3" value="32" checked>
+                <label class="form-check-label" for="bottomSize3">32</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bottomSize" id="bottomSize4" value="34">
+                <label class="form-check-label" for="bottomSize4">34</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bottomSize" id="bottomSize5" value="36">
+                <label class="form-check-label" for="bottomSize5">36</label>
+              </div>
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="bottomSize" id="bottomSize6" value="38">
+                  <label class="form-check-label" for="bottomSize6">38</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="bottomSize" id="bottomSize7" value="40">
+                  <label class="form-check-label" for="bottomSize7">40</label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="example-number-input" class="font-weight-bold">PinCode</label>
+              <div class="col-8">
+                <input class="form-control form-inline" type="number" value="60" id="example-number-input" name="pinCode">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="font-weight-bold">Which is your favorite online fashion store?</label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="platforms" id="platforms1" value="Amazon" checked>
+                <label class="form-check-label" for="platforms1">Amazon</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="platforms" id="platforms2" value="Flipkart">
+                <label class="form-check-label" for="platforms2">Flipkart</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="platforms" id="platforms3" value="Myntra" >
+                <label class="form-check-label" for="platforms3">Myntra</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="platforms" id="platforms4" value="Ajio">
+                <label class="form-check-label" for="platforms4">Ajio</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="platforms" id="platforms5" value="Max Fashion">
+                <label class="form-check-label" for="platforms5">Max Fashion</label>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="font-weight-bold">Your Close Friends Count</label>
+              <small id="Help" class="form-text text-muted">We'll be serving Same garments design in bundles!.</small>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gangCount" id="gangCount1" value="2">
+                <label class="form-check-label" for="gangCount1">2</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gangCount" id="gangCount2" value="3" checked>
+                <label class="form-check-label" for="gangCount2">3</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gangCount" id="gangCount3" value="5">
+                <label class="form-check-label" for="gangCount3">5</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gangCount" id="gangCount4" value="8">
+                <label class="form-check-label" for="gangCount4">8</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gangCount" id="gangCount5" value="9">
+                <label class="form-check-label" for="gangCount5">>8</label>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="exampleTextarea" class="font-weight-bold">Feedback</label>
+              <small id="feedback" class="form-text text-muted">This is important for us. Please do support Indian Products!</small>
+              <textarea class="form-control" id="exampleTextarea" rows="3" name="feedback"></textarea>
+            </div>
+
+            
+            <div class="form-group">
+              <label for="example-number-input1" class="font-weight-bold">Mobile Number(Optional)</label>
+              <small id="privacy" class="form-text text-muted">We strongly respects your Privacy!</small>
+              <div class="col-8">
+                <input class="form-control" type="number" value="" id="example-number-input1" name="mobile">
+              </div>
+            </div>
+
+
+            <label class="font-weight-bold">Let us Hear about you more!</label>
+            <label class="font-weight-bold">Your Favorite Magicians, OOPs! Musicians</label><br/>
+              
+           <!---Music-->
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528066/getCrookd/survey/Music/ar_rahman.jpg " class="card-img-top" alt="AR Rahman">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="ar" value="Rahman">
+                                  <label class="form-check-label" for="ar"><small>AR Rahman</small></label>
+                              </div>
+                            </div>
+                </div>
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/ilayaraja_nxiodg.jpg" class="card-img-top" alt="Ilayaraja">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="raja" value="Ilayaraja">
+                                  <label class="form-check-label" for="raja"><small>Ilayaraja</small></label>
+                              </div>
+                            </div>
+                </div>
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528063/getCrookd/survey/Music/sel_n1fsfo.jpg" class="card-img-top" alt="selena">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="selena" value="Selena Gomez">
+                                  <label class="form-check-label" for="selena"><small>Selena Gomez</small></label>
+                              </div>
+                            </div>
+                </div>
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/jb_ribypa.jpg" class="card-img-top" alt="selena">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="justin" value="Justin Bieber">
+                                  <label class="form-check-label" for="justin"><small>Justin Bieber</small></label>
+                              </div>
+                            </div>
+                </div>
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/eminem_vw1q9d.jpg" class="card-img-top" alt="selena">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="eminem" value="Eminem">
+                                  <label class="form-check-label" for="eminem"><small>Eminem</small></label>
+                              </div>
+                            </div>
+                </div>                
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/ani_v090xc.jpg" class="card-img-top" alt="selena">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="anirudh" value="anirudh">
+                                  <label class="form-check-label" for="anirudh"><small>Anirudh</small></label>
+                              </div>
+                            </div>
+                </div>               
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528065/getCrookd/survey/Music/uvan_oybdui.jpg" class="card-img-top" alt="selena">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="yuban" value="yuban">
+                                  <label class="form-check-label" for="yuban"><small>Yuvan Shankar Raja</small></label>
+                              </div>
+                            </div>
+                </div>            
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/harris_lwxty7.jpg" class="card-img-top" alt="selena">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="harris" value="harris">
+                                  <label class="form-check-label" for="harris"><small>Harris Jayaraj</small></label>
+                              </div>
+                            </div>
+                </div>          
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528059/getCrookd/survey/Music/ed_ft7vxk.jpg" class="card-img-top" alt="selena">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="ed" value="ed">
+                                  <label class="form-check-label" for="ed"><small>Ed Sheeran</small></label>
+                              </div>
+                            </div>
+                </div>        
+                <div class="col-xs-3">
+                  <div class="card" style="width: 10rem;" >
+                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528063/getCrookd/survey/Music/tay_dbputx.jpg" class="card-img-top" alt="selena">
+                              <div class="card-body">                      
+                                  <input class="form-check-input" type="checkbox" name="musicTaste1" id="taylor" value="taylor">
+                                  <label class="form-check-label" for="taylor"><small>Taylor Swift</small></label>
+                              </div>
+                            </div>
+                </div>
+
+
+               
+              </div>              
+            </div>
+
+
+           <!---Actors-->
+           <label class="font-weight-bold">Your Favorite Actors</label><br/>
+           <div class="container">
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532375/getCrookd/survey/actor/rajini_j1tx4k.jpg" class="card-img-top" alt="Rajini">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="actorTaste1" id="Rajini" value="Rajini">
+                                <label class="form-check-label" for="Rajini"><small>Thalaivar</small></label>
+                            </div>
+                          </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532393/getCrookd/survey/actor/vj_wvw0ji.jpg" class="card-img-top" alt="Ilayaraja">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="actorTaste1" id="Vijay" value="Vijay">
+                                <label class="form-check-label" for="Vijay"><small>Thalapathy</small></label>
+                            </div>
+                          </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532380/getCrookd/survey/actor/ajith-hd-photos-wallpapers-1080p-wnfn-723x1281_xvsfsl.jpg" class="card-img-top" alt="selena">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="actorTaste1" id="Ajith" value="Ajith">
+                                <label class="form-check-label" for="Ajith"><small>Thala</small></label>
+                            </div>
+                          </div>
+              </div>
+            <div class="col-xs-3">
+            <div class="card" style="width: 10rem;" >
+                        <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532394/getCrookd/survey/actor/kamal_wsfr8c.jpg" class="card-img-top" alt="Rajini">
+                        <div class="card-body">                      
+                            <input class="form-check-input" type="checkbox" name="actorTaste1" id="Kamal" value="Kamal">
+                            <label class="form-check-label" for="Kamal"><small>Ulaganayagan</small></label>
+                        </div>
+                      </div>
+          </div>        
+          <div class="col-xs-3">
+            <div class="card" style="width: 10rem;" >
+                        <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532401/getCrookd/survey/actor/surya_hetpsq.gif" class="card-img-top" alt="Rajini">
+                        <div class="card-body">                      
+                            <input class="form-check-input" type="checkbox" name="actorTaste1" id="Surya" value="Surya">
+                            <label class="form-check-label" for="Surya"><small>Surya</small></label>
+                        </div>
+                      </div>
+          </div>    
+          <div class="col-xs-3">
+            <div class="card" style="width: 10rem;" >
+                        <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532383/getCrookd/survey/actor/dhanush_zu2p1q.jpg" class="card-img-top" alt="Rajini">
+                        <div class="card-body">                      
+                            <input class="form-check-input" type="checkbox" name="actorTaste1" id="Dhanush" value="Dhanush">
+                            <label class="form-check-label" for="Dhanush"><small>Dhanush</small></label>
+                        </div>
+                      </div>
+          </div>  
+          <div class="col-xs-3">
+            <div class="card" style="width: 10rem;" >
+                        <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532384/getCrookd/survey/actor/vikram_ys7lrc.jpg" class="card-img-top" alt="Rajini">
+                        <div class="card-body">                      
+                            <input class="form-check-input" type="checkbox" name="actorTaste1" id="Vikram" value="Vikram">
+                            <label class="form-check-label" for="Vikram"><small>Vikram</small></label>
+                        </div>
+                      </div>
+          </div>
+        </div>       
+      </div> 
+
+
+           <!---Sports-->
+           <label class="font-weight-bold">Your Favorite Sports Person</label><br/>
+           <div class="container">
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533835/getCrookd/survey/sports/msd_ip6cmt.jpg" class="card-img-top" alt="Rajini">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Dhoni" value="Dhoni">
+                                <label class="form-check-label" for="Dhoni"><small>MS Dhoni</small></label>
+                            </div>
+                          </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533879/getCrookd/survey/sports/kohli_cum8mh.jpg" class="card-img-top" alt="Ilayaraja">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="sportsTaste1" id="kohli" value="kohli">
+                                <label class="form-check-label" for="kohli"><small>Virat Kohli</small></label>
+                            </div>
+                          </div>
+              </div>
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533901/getCrookd/survey/sports/messi_uxhs6a.jpg" class="card-img-top" alt="selena">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Messi" value="Messi">
+                                <label class="form-check-label" for="Messi"><small>Messi</small></label>
+                            </div>
+                          </div>
+              </div>   
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533867/getCrookd/survey/sports/r7_aprtnt.jpg" class="card-img-top" alt="selena">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Ronaldo" value="Ronaldo">
+                                <label class="form-check-label" for="Ronaldo"><small>Ronaldo</small></label>
+                            </div>
+                          </div>
+              </div>                     
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533872/getCrookd/survey/sports/saina_cyt84z.jpg" class="card-img-top" alt="selena">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Saina" value="Saina">
+                                <label class="form-check-label" for="Saina"><small>Saina Nehwal</small></label>
+                            </div>
+                          </div>
+              </div>                    
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533879/getCrookd/survey/sports/sindhu_mzbnlf.jpg" class="card-img-top" alt="selena">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Sindhu" value="Sindhu">
+                                <label class="form-check-label" for="Sindhu"><small>P.V.Sindhu</small></label>
+                            </div>
+                          </div>
+              </div>               
+            </div>              
+          </div>
+          <small id="info1" class="form-text">Did you know, We provide bundles of Sports Jersey at affordable prices for your team.</small>
+          <br/>
+
+
+            <!---Directors-->
+            <label class="font-weight-bold">Some More Interests</label><br/>
+            <div class="container">
+             <div class="row">
+               <div class="col-xs-3">
+                 <div class="card" style="width: 10rem;" >
+                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591535895/getCrookd/survey/directors/gvm_ef08me.jpg" class="card-img-top" alt="Rajini">
+                             <div class="card-body">                      
+                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="GVM" value="GVM">
+                                 <label class="form-check-label" for="GVM"><small>GVM</small></label>
+                             </div>
+                           </div>
+               </div>
+               <div class="col-xs-3">
+                 <div class="card" style="width: 10rem;" >
+                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591535854/getCrookd/survey/directors/mani_ix24a2.jpg" class="card-img-top" alt="Ilayaraja">
+                             <div class="card-body">                      
+                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="ManiRatnam" value="ManiRatnam">
+                                 <label class="form-check-label" for="ManiRatnam"><small>Mani Ratnam</small></label>
+                             </div>
+                           </div>
+               </div>
+               <div class="col-xs-3">
+                 <div class="card" style="width: 10rem;" >
+                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591535892/getCrookd/survey/directors/nolan_yq3iuu.jpg" class="card-img-top" alt="selena">
+                             <div class="card-body">                      
+                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="Nolan" value="Nolan">
+                                 <label class="form-check-label" for="Nolan"><small>Christoper Nolan</small></label>
+                             </div>
+                           </div>
+               </div>                       
+               <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591535817/getCrookd/survey/directors/moneyheist_okbejw.jpg" class="card-img-top" alt="Ilayaraja">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="dirTaste1" id="moneyheist" value="moneyheist">
+                                <label class="form-check-label" for="moneyheist"><small>Money Heist</small></label>
+                            </div>
+                          </div>
+              </div>                                      
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535789/getCrookd/survey/directors/batman_ztkxqk.jpg" class="card-img-top" alt="Ilayaraja">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="dirTaste1" id="batman" value="batman">
+                                <label class="form-check-label" for="batman"><small>Batman</small></label>
+                            </div>
+                          </div>
+              </div>                                                  
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535935/getCrookd/survey/directors/superman_kcmbog.jpg" class="card-img-top" alt="Ilayaraja">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="dirTaste1" id="superman" value="superman">
+                                <label class="form-check-label" for="superman"><small>Superman</small></label>
+                            </div>
+                          </div>
+              </div>  
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535820/getCrookd/survey/directors/ironman_z8brgm.jpg" class="card-img-top" alt="Ilayaraja">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="dirTaste1" id="ironman" value="ironman">
+                                <label class="form-check-label" for="ironman"><small>Ironman</small></label>
+                            </div>
+                          </div>
+              </div>  
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535857/getCrookd/survey/directors/shin_chan_gzrebn.jpg" class="card-img-top" alt="Ilayaraja">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="dirTaste1" id="Shinchan" value="Shinchan">
+                                <label class="form-check-label" for="Shinchan"><small>Shinchan</small></label>
+                            </div>
+                          </div>
+              </div>  
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535864/getCrookd/survey/directors/tamizh_hsm1ds.jpg" class="card-img-top" alt="Ilayaraja">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="dirTaste1" id="Tamizh" value="Tamizh">
+                                <label class="form-check-label" for="Tamizh"><small>Tamizh</small></label>
+                            </div>
+                          </div>
+              </div>  
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535908/getCrookd/survey/directors/pubg_xjdwlv.jpg" class="card-img-top" alt="Ilayaraja">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="dirTaste1" id="Pubg" value="Pubg">
+                                <label class="form-check-label" for="Pubg"><small>Pubg</small></label>
+                            </div>
+                          </div>
+              </div>    
+             </div>              
+           </div>
+
+           
+            <!---Memes-->
+            <label class="font-weight-bold">Atlast, Pick Your Favorite Meme here</label><br/>
+            <div class="container">
+             <div class="row">
+               <div class="col-xs-3">
+                 <div class="card" style="width: 10rem;" >
+                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537624/getCrookd/survey/memes/meme1_bndgxg.png" class="card-img-top" alt="Rajini">
+                             <div class="card-body">                      
+                                 <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme1" value="meme1">
+                                 <label class="form-check-label" for="meme1"><small>Meme 1</small></label>
+                             </div>
+                           </div>
+               </div>
+               <div class="col-xs-3">
+                 <div class="card" style="width: 10rem;" >
+                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537624/getCrookd/survey/memes/meme2_vvxteg.png" class="card-img-top" alt="Ilayaraja">
+                             <div class="card-body">                      
+                                 <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme2" value="meme2">
+                                 <label class="form-check-label" for="meme2"><small>Meme 2</small></label>
+                             </div>
+                           </div>
+               </div>
+               <div class="col-xs-3">
+                 <div class="card" style="width: 10rem;" >
+                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537622/getCrookd/survey/memes/meme3_g7rpvd.png" class="card-img-top" alt="selena">
+                             <div class="card-body">                      
+                                 <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme3" value="meme3">
+                                 <label class="form-check-label" for="meme3"><small>Meme 3</small></label>
+                             </div>
+                           </div>
+               </div>      
+               <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537623/getCrookd/survey/memes/meme4_d4s25c.png" class="card-img-top" alt="selena">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme4" value="meme4">
+                                <label class="form-check-label" for="meme4"><small>Meme 4</small></label>
+                            </div>
+                          </div>
+              </div>      
+              <div class="col-xs-3">
+                <div class="card" style="width: 10rem;" >
+                            <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537623/getCrookd/survey/memes/meme5_j2cjwb.png" class="card-img-top" alt="selena">
+                            <div class="card-body">                      
+                                <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme5" value="meme5">
+                                <label class="form-check-label" for="meme5"><small>Meme 5</small></label>
+                            </div>
+                          </div>
+              </div>             
+             </div>              
+           </div>
+
+
+           <small id="info2" class="form-text">We got you POD Service</small>
+           <small id="info2" class="form-text">Print On-Demand Service</small>
+           <small id="info2" class="font-weight-bold form-text">Send us the Picture with Text to Print on T-shirts</small>
+           <small id="info2" class="form-text">It's that Simple!</small>
+
+
+           <!---Jobs-->
+           <br/>
+           <label class="font-weight-bold">We are Small in numbers and we are Hiring! Join Us?</label><br/>
+           <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Joining" id="hiring" value="Yes">
+            <label class="form-check-label" for="hiring">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Joining" id="noJob" value="no" checked onclick="show1()">
+            <label class="form-check-label" for="noJob">Nope</label>
+          </div>
+          <div class="showIfNecessary">
+            <br/>
+            <label>Choose a Desired Profession</label>
+            <br/>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="joinUs" id="photoshop" value="Photoshop">
+              <label class="form-check-label" for="photoshop">Photoshop</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="joinUs" id="photography" value="Photography">
+              <label class="form-check-label" for="photography">Photography</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="joinUs" id="modelling" value="Modeling">
+              <label class="form-check-label" for="modelling">Modeling</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="joinUs" id="frontdev" value="Front End Developer">
+              <label class="form-check-label" for="frontdev">Front End Developer</label>
+            </div>            
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="joinUs" id="backdev" value="Back End Developer">
+              <label class="form-check-label" for="backdev">Back End Developer</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="joinUs" id="franchise" value="franchise">
+              <label class="form-check-label" for="franchise">Franchise in your Hometown(local store)</label>
+            </div>
+          </div>
+
+
+
+
+
+            <br/> <br/>
+            <input id='music_taste' type='hidden' name='musicTaste' />
+            <input id='actor_taste' type='hidden' name='actorTaste' />
+            <input id='sports_taste' type='hidden' name='sportsTaste' />
+            <input id='dir_taste' type='hidden' name='dirTaste' />
+            <input id='meme_taste' type='hidden' name='memesTaste' />
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
     </div>
     <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
