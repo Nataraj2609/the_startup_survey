@@ -13,6 +13,7 @@
     />
     <title>getCrookd- The Survey Page</title>
     <link rel="stylesheet" href="/css/roomsStyles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script>
@@ -22,8 +23,8 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <a class="navbar-brand" href="#">
-        <img src="https://res.cloudinary.com/getcrookd/image/upload/c_thumb,g_face,w_75/v1591368995/getCrookd/logo/label_zbqveu.jpg"/>
-        getCrookd</a>
+        <img id="logo_nav" src="https://res.cloudinary.com/getcrookd/image/upload/c_thumb,g_face,w_75/v1591368995/getCrookd/logo/label_zbqveu.jpg"/>
+        getCrookd Garments</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -76,8 +77,8 @@
       <div class="card">
         <div class="card-body">
       
-      <h3>Hi <span class="userName"><%= user.fullName %></span>,</h3>
-      <h6><p>Before Introducing about ourselves, let's look a small survey<br> <br>According to <a href="https://economictimes.indiatimes.com/et500">Economic Times</a>, it is sad to see that We[Tamil Nadu Companies] are not among the list of investable companies with good fundamentals and future-ready business models in India.
+      <h4>Hi <span class="userName"><%= user.fullName %></span>,</h4>
+      <p>Before Introducing about ourselves, let's look a small survey<br> <br>According to <a href="https://economictimes.indiatimes.com/et500">Economic Times</a>, it is sad to see that We[Tamil Nadu Companies] are not among the list of investable companies with good fundamentals and future-ready business models in India.
        </p>
       <p>Only a Few Succeeded! <ol>
       <li>Hotel Saravana Bhavan </li>
@@ -91,8 +92,8 @@
       <li>Murgappa Group</li>
       <li>Ramraj Cotton</li>
       </ol>
-   And so, We like to earn a Brand Name representing People of India❤️
-    </p></h6>
+   And so, We like to earn a Brand Name representing People of TN India❤️
+    </p><hr>
     <h5>
       <h4>getCrookd Garments</h4>
       <p>getCrookd is an Online store built locally for the People of Tamil Nadu. We want some data to create our data model. We Strongly respect Your Privacy!</p>
@@ -107,7 +108,7 @@
           <h4><span class="userName"><%= user.fullName %></span>,</h4>
           <h6>Enter your Responses here</h6>
         </div>
-        <div class="card-body">
+        <div class="card-body formData">
           <form id="responseFormData" action="/submit" method="post" name="registration">
             <div class="form-group">
               <label for="exampleInputEmail1" class="font-weight-bold">Email address</label>
@@ -272,7 +273,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528066/getCrookd/survey/Music/ar_rahman.jpg " class="card-img-top" alt="AR Rahman">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="ar" value="Rahman">
@@ -281,7 +282,7 @@
                             </div>
                 </div>
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/ilayaraja_nxiodg.jpg" class="card-img-top" alt="Ilayaraja">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="raja" value="Ilayaraja">
@@ -290,7 +291,7 @@
                             </div>
                 </div>
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528063/getCrookd/survey/Music/sel_n1fsfo.jpg" class="card-img-top" alt="selena">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="selena" value="Selena Gomez">
@@ -299,7 +300,7 @@
                             </div>
                 </div>
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/jb_ribypa.jpg" class="card-img-top" alt="selena">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="justin" value="Justin Bieber">
@@ -308,7 +309,7 @@
                             </div>
                 </div>
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/eminem_vw1q9d.jpg" class="card-img-top" alt="selena">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="eminem" value="Eminem">
@@ -317,7 +318,7 @@
                             </div>
                 </div>                
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/ani_v090xc.jpg" class="card-img-top" alt="selena">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="anirudh" value="anirudh">
@@ -326,7 +327,7 @@
                             </div>
                 </div>               
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528065/getCrookd/survey/Music/uvan_oybdui.jpg" class="card-img-top" alt="selena">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="yuban" value="yuban">
@@ -335,7 +336,7 @@
                             </div>
                 </div>            
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528061/getCrookd/survey/Music/harris_lwxty7.jpg" class="card-img-top" alt="selena">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="harris" value="harris">
@@ -344,7 +345,7 @@
                             </div>
                 </div>          
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528059/getCrookd/survey/Music/ed_ft7vxk.jpg" class="card-img-top" alt="selena">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="ed" value="ed">
@@ -353,7 +354,7 @@
                             </div>
                 </div>        
                 <div class="col-xs-3">
-                  <div class="card" style="width: 10rem;" >
+                  <div class="card" style="width: 8.5rem;" >
                               <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591528063/getCrookd/survey/Music/tay_dbputx.jpg" class="card-img-top" alt="selena">
                               <div class="card-body">                      
                                   <input class="form-check-input" type="checkbox" name="musicTaste1" id="taylor" value="taylor">
@@ -373,7 +374,7 @@
            <div class="container">
             <div class="row">
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532375/getCrookd/survey/actor/rajini_j1tx4k.jpg" class="card-img-top" alt="Rajini">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="actorTaste1" id="Rajini" value="Rajini">
@@ -382,7 +383,7 @@
                           </div>
               </div>
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532393/getCrookd/survey/actor/vj_wvw0ji.jpg" class="card-img-top" alt="Ilayaraja">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="actorTaste1" id="Vijay" value="Vijay">
@@ -391,7 +392,7 @@
                           </div>
               </div>
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532380/getCrookd/survey/actor/ajith-hd-photos-wallpapers-1080p-wnfn-723x1281_xvsfsl.jpg" class="card-img-top" alt="selena">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="actorTaste1" id="Ajith" value="Ajith">
@@ -400,7 +401,7 @@
                           </div>
               </div>
             <div class="col-xs-3">
-            <div class="card" style="width: 10rem;" >
+            <div class="card" style="width: 8.5rem;" >
                         <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532394/getCrookd/survey/actor/kamal_wsfr8c.jpg" class="card-img-top" alt="Rajini">
                         <div class="card-body">                      
                             <input class="form-check-input" type="checkbox" name="actorTaste1" id="Kamal" value="Kamal">
@@ -409,7 +410,7 @@
                       </div>
           </div>        
           <div class="col-xs-3">
-            <div class="card" style="width: 10rem;" >
+            <div class="card" style="width: 8.5rem;" >
                         <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532401/getCrookd/survey/actor/surya_hetpsq.gif" class="card-img-top" alt="Rajini">
                         <div class="card-body">                      
                             <input class="form-check-input" type="checkbox" name="actorTaste1" id="Surya" value="Surya">
@@ -418,7 +419,7 @@
                       </div>
           </div>    
           <div class="col-xs-3">
-            <div class="card" style="width: 10rem;" >
+            <div class="card" style="width: 8.5rem;" >
                         <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532383/getCrookd/survey/actor/dhanush_zu2p1q.jpg" class="card-img-top" alt="Rajini">
                         <div class="card-body">                      
                             <input class="form-check-input" type="checkbox" name="actorTaste1" id="Dhanush" value="Dhanush">
@@ -427,7 +428,7 @@
                       </div>
           </div>  
           <div class="col-xs-3">
-            <div class="card" style="width: 10rem;" >
+            <div class="card" style="width: 8.5rem;" >
                         <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591532384/getCrookd/survey/actor/vikram_ys7lrc.jpg" class="card-img-top" alt="Rajini">
                         <div class="card-body">                      
                             <input class="form-check-input" type="checkbox" name="actorTaste1" id="Vikram" value="Vikram">
@@ -444,7 +445,7 @@
            <div class="container">
             <div class="row">
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533835/getCrookd/survey/sports/msd_ip6cmt.jpg" class="card-img-top" alt="Rajini">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Dhoni" value="Dhoni">
@@ -453,7 +454,7 @@
                           </div>
               </div>
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533879/getCrookd/survey/sports/kohli_cum8mh.jpg" class="card-img-top" alt="Ilayaraja">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="sportsTaste1" id="kohli" value="kohli">
@@ -462,7 +463,7 @@
                           </div>
               </div>
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533901/getCrookd/survey/sports/messi_uxhs6a.jpg" class="card-img-top" alt="selena">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Messi" value="Messi">
@@ -471,7 +472,7 @@
                           </div>
               </div>   
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533867/getCrookd/survey/sports/r7_aprtnt.jpg" class="card-img-top" alt="selena">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Ronaldo" value="Ronaldo">
@@ -480,7 +481,7 @@
                           </div>
               </div>                     
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533872/getCrookd/survey/sports/saina_cyt84z.jpg" class="card-img-top" alt="selena">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Saina" value="Saina">
@@ -489,7 +490,7 @@
                           </div>
               </div>                    
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591533879/getCrookd/survey/sports/sindhu_mzbnlf.jpg" class="card-img-top" alt="selena">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="sportsTaste1" id="Sindhu" value="Sindhu">
@@ -508,7 +509,7 @@
             <div class="container">
              <div class="row">
                <div class="col-xs-3">
-                 <div class="card" style="width: 10rem;" >
+                 <div class="card" style="width: 8.5rem;" >
                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591535895/getCrookd/survey/directors/gvm_ef08me.jpg" class="card-img-top" alt="Rajini">
                              <div class="card-body">                      
                                  <input class="form-check-input" type="checkbox" name="dirTaste1" id="GVM" value="GVM">
@@ -517,7 +518,7 @@
                            </div>
                </div>
                <div class="col-xs-3">
-                 <div class="card" style="width: 10rem;" >
+                 <div class="card" style="width: 8.5rem;" >
                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591535854/getCrookd/survey/directors/mani_ix24a2.jpg" class="card-img-top" alt="Ilayaraja">
                              <div class="card-body">                      
                                  <input class="form-check-input" type="checkbox" name="dirTaste1" id="ManiRatnam" value="ManiRatnam">
@@ -526,7 +527,7 @@
                            </div>
                </div>
                <div class="col-xs-3">
-                 <div class="card" style="width: 10rem;" >
+                 <div class="card" style="width: 8.5rem;" >
                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591535892/getCrookd/survey/directors/nolan_yq3iuu.jpg" class="card-img-top" alt="selena">
                              <div class="card-body">                      
                                  <input class="form-check-input" type="checkbox" name="dirTaste1" id="Nolan" value="Nolan">
@@ -535,7 +536,7 @@
                            </div>
                </div>                       
                <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591535817/getCrookd/survey/directors/moneyheist_okbejw.jpg" class="card-img-top" alt="Ilayaraja">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="moneyheist" value="moneyheist">
@@ -544,7 +545,7 @@
                           </div>
               </div>                                      
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535789/getCrookd/survey/directors/batman_ztkxqk.jpg" class="card-img-top" alt="Ilayaraja">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="batman" value="batman">
@@ -553,7 +554,7 @@
                           </div>
               </div>                                                  
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535935/getCrookd/survey/directors/superman_kcmbog.jpg" class="card-img-top" alt="Ilayaraja">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="superman" value="superman">
@@ -562,7 +563,7 @@
                           </div>
               </div>  
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535820/getCrookd/survey/directors/ironman_z8brgm.jpg" class="card-img-top" alt="Ilayaraja">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="ironman" value="ironman">
@@ -571,7 +572,7 @@
                           </div>
               </div>  
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535857/getCrookd/survey/directors/shin_chan_gzrebn.jpg" class="card-img-top" alt="Ilayaraja">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="Shinchan" value="Shinchan">
@@ -580,7 +581,7 @@
                           </div>
               </div>  
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535864/getCrookd/survey/directors/tamizh_hsm1ds.jpg" class="card-img-top" alt="Ilayaraja">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="Tamizh" value="Tamizh">
@@ -589,7 +590,7 @@
                           </div>
               </div>  
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1591535908/getCrookd/survey/directors/pubg_xjdwlv.jpg" class="card-img-top" alt="Ilayaraja">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="dirTaste1" id="Pubg" value="Pubg">
@@ -606,7 +607,7 @@
             <div class="container">
              <div class="row">
                <div class="col-xs-3">
-                 <div class="card" style="width: 10rem;" >
+                 <div class="card" style="width: 8.5rem;" >
                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537624/getCrookd/survey/memes/meme1_bndgxg.png" class="card-img-top" alt="Rajini">
                              <div class="card-body">                      
                                  <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme1" value="meme1">
@@ -615,7 +616,7 @@
                            </div>
                </div>
                <div class="col-xs-3">
-                 <div class="card" style="width: 10rem;" >
+                 <div class="card" style="width: 8.5rem;" >
                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537624/getCrookd/survey/memes/meme2_vvxteg.png" class="card-img-top" alt="Ilayaraja">
                              <div class="card-body">                      
                                  <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme2" value="meme2">
@@ -624,7 +625,7 @@
                            </div>
                </div>
                <div class="col-xs-3">
-                 <div class="card" style="width: 10rem;" >
+                 <div class="card" style="width: 8.5rem;" >
                              <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537622/getCrookd/survey/memes/meme3_g7rpvd.png" class="card-img-top" alt="selena">
                              <div class="card-body">                      
                                  <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme3" value="meme3">
@@ -633,7 +634,7 @@
                            </div>
                </div>      
                <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537623/getCrookd/survey/memes/meme4_d4s25c.png" class="card-img-top" alt="selena">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme4" value="meme4">
@@ -642,7 +643,7 @@
                           </div>
               </div>      
               <div class="col-xs-3">
-                <div class="card" style="width: 10rem;" >
+                <div class="card" style="width: 8.5rem;" >
                             <img src="https://res.cloudinary.com/getcrookd/image/upload/w_200,ar_1:1,c_fill,g_auto,e_art:hokusai/v1591537623/getCrookd/survey/memes/meme5_j2cjwb.png" class="card-img-top" alt="selena">
                             <div class="card-body">                      
                                 <input class="form-check-input" type="checkbox" name="memesTaste1" id="meme5" value="meme5">
@@ -716,6 +717,65 @@
         </div>
       </div>
     </div>
+
+
+    <footer id="colophon" class="site-footer" role="contentinfo">
+  
+      <div class="container">
+       <div class="row">
+         <div class="col-md-3 col-sm-6">
+           <!--Column1-->
+           <div class="footer-pad">
+             <h4>About Us</h4>
+             <ul class="list-unstyled">
+               <li><a href="#"></a></li>
+               <li><a href="mailto:getcrookd@gmail.com">Careers</a></li>
+               <li><a href="https://www.termsfeed.com/live/9707dde0-a6fe-4dab-82ef-dc36c072ee79">Privacy policy</a></li>
+               <li><a href="https://www.termsfeed.com/live/9ffff033-931b-4edd-8a02-51820cbf8abb">Terms & Conditions</a></li>
+             </ul>
+           </div>
+         </div>
+         <div class="col-md-4 col-sm-6">
+           <!--Column1-->
+           <div class="footer-pad">
+             <h4>Made with ❤️ In India</h4>
+             <ul class="list-unstyled">
+               <li><h6>Launching on Aug 2020</h6></li>
+             </ul>
+           </div>
+         </div>  
+    <div class="col-md-4 col-sm-6 ">
+      <div class="social-wrapper">
+         <h4>Follow Us on</h4>
+        <ul>
+          <li>
+            <a href=" https://twitter.com/getcrookd" target="_blank">
+              <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png" alt="Twitter Logo" class="twitter-icon"></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/getcrookd/" target="_blank">
+              <img src="https://www.mchenryvillage.com/images/instagram-icon.png" alt="Instagram Logo" class="instagram-icon"></a>
+          </li>
+          
+          <li>
+            <a href="https://www.facebook.com/getcrookd.garments" target="_blank">
+              <img src="http://www.iconarchive.com/download/i54037/danleech/simple/facebook.ico" alt="Facebook Logo" class="facebook-icon"></a>
+          </li>
+          <li>
+            <a href="mailto:getcrookd@gmail.com" target="_blank">
+              <img src="https://img.icons8.com/color/48/000000/gmail.png" alt="Googleplus Logo" class="googleplus-icon"></a>
+          </li>     
+        </ul>
+      </div>     
+      <nav class="footer-nav" role="navigation">
+        <p>Copyright &copy; 2020 getCrookd. All rights reserved.</p>
+      </nav>
+            </div></div> 
+     </footer>
+
+   </div>
+
+
     <script
       src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

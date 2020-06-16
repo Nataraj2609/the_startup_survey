@@ -13,9 +13,9 @@ module.exports = () => {
                     user: req.user
                 });
             }],
-            '/success': (req, res, next) => {
+            '/success': [helper.isAuthenticated ,(req, res, next) => {
                 res.render('success');
-            },
+            }],
             '/auth/facebook': passport.authenticate('facebook'),
             '/auth/facebook/callback': passport.authenticate('facebook', {
                 successRedirect: '/rooms',
